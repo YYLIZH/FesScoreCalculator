@@ -84,8 +84,6 @@ const leastScores = async (scores, target_score) => {
     let dp = Array(target_score + 1).fill(target_score + 1)
     let p = Array(target_score + 1).fill(0)
     dp[0] = 0;
-    let done = 0;
-
     let task = new Promise((resolve) => {
         for (let i = 1; i <= target_score; i++) {
             for (let j = 0; j < scores.length; j++) {
