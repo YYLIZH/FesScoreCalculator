@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+    <title>Fes Score Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fes 分數計算機</h1>
+        <p>這是一個基於動態規劃演算法的Fes的計算機，可以計算要打到目標分數的話，還需要打幾場。</p>
+        <p>本計算機的相關數據由wl01780813提供</p>
+        <div class="d-flex mb-2">
+            <div style="margin-right: 20px;">
+                <input type="radio" name="gameType" id="coin" value="coin">
+                <label for="coin">硬幣活動</label>
+                <br>
+                <label for="">硬幣活動只計算easy難度下的分數</label>
+            </div>
+            <div style="margin-right: 20px;">
+                <input type="radio" name="gameType" id="pros" value="pros">
+                <label for="pros">道具活動</label>
+            </div>
+        </div>
+        <div class="d-flex mb-2">
+            <p style="margin-right: 10px;">是否有手燈加成</p>
+            <div style="margin-right: 20px;">
+                <input type="radio" name="handlight" id="coin" value="True" required>
+                <label for="coin">有</label>
+            </div>
+            <div style="margin-right: 20px;">
+                <input type="radio" name="handlight" id="pros" value="False">
+                <label for="pros">無</label>
+            </div>
+        </div>
+        <select class="form-select" aria-label="Default select example" id="bonus" style="margin-bottom: 5px;">
+            <option selected disabled>請選擇你的加成</option>
+            <option value="0">0%</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="40">40%</option>
+            <option value="70">70%</option>
+        </select>
+        <div class="d-flex mt-2 mb-2">
+            <div style="margin-right: 10px;">
+                <label for="presentScore">目前分數</label>
+                <input type="text" name="presentScore" id="presentScore">
+            </div>
+            <div style="margin-right: 10px;">
+                <label for="targetScore">目標分數</label>
+                <input type="text" name="targetScore" id="targetScore">
+            </div>
+        </div>
+        <button id="calculateBtn" type="submit" class="btn btn-outline-primary calculate">開始計算</button>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
