@@ -15,21 +15,21 @@
 using namespace std;
 
 tuple < vector < char > , vector < char > , vector < string > , vector < int > > coin(string rate) {
-    vector < char > goals;
     vector < char > combos;
+    vector < char > goals;
     vector < string > levels;
     vector < int > scores;
     ifstream ifs(rate, ios:: in );
     if (!ifs.is_open()) {
         cout << "Failed to open file\n.";
     } else {
-        char goal;
         char combo;
+        char goal;
         string level;
         int score;
-        while (ifs >> goal >> combo >> level >> score) {
-            goals.push_back(goal);
+        while (ifs >> combo >> goal >> level >> score) {
             combos.push_back(combo);
+            goals.push_back(goal);
             levels.push_back(level);
             scores.push_back(score);
         }
@@ -37,8 +37,8 @@ tuple < vector < char > , vector < char > , vector < string > , vector < int > >
     }
     ifs.close();
     return {
-        goals,
         combos,
+        goals,
         levels,
         scores
     };
@@ -46,8 +46,8 @@ tuple < vector < char > , vector < char > , vector < string > , vector < int > >
 
 tuple < vector < int > , vector < char > , vector < char > , vector < string > , vector < int > > pros(string rate) {
     vector < int > magnifications;
-    vector < char > goals;
     vector < char > combos;
+    vector < char > goals;
     vector < string > levels;
     vector < int > scores;
     ifstream ifs(rate, ios:: in );
@@ -55,14 +55,14 @@ tuple < vector < int > , vector < char > , vector < char > , vector < string > ,
         cout << "Failed to open file\n.";
     } else {
         int magnification;
-        char goal;
         char combo;
+        char goal;
         string level;
         int score;
-        while (ifs >> magnification >> goal >> combo >> level >> score) {
+        while (ifs >> magnification >> combo >> goal >> level >> score) {
             magnifications.push_back(magnification);
-            goals.push_back(goal);
             combos.push_back(combo);
+            goals.push_back(goal);
             levels.push_back(level);
             scores.push_back(score);
         }
@@ -71,8 +71,8 @@ tuple < vector < int > , vector < char > , vector < char > , vector < string > ,
     ifs.close();
     return {
         magnifications,
-        goals,
         combos,
+        goals,
         levels,
         scores
     };
@@ -275,7 +275,7 @@ void coin_game(string rate) {
     vector < char > combos;
     vector < string > levels;
     vector < int > scores;
-    tie(goals, combos, levels, scores) = coin(rate);
+    tie(combos, goals, levels, scores) = coin(rate);
     int ans;
     vector < int > result_array;
     tie(ans, result_array) = leastScores(scores, target);
@@ -300,7 +300,7 @@ void coin_game(string rate) {
             target = target - result_array[target];
         }
         for (iter = score_result.begin(); iter != score_result.end(); ++iter) {
-            cout << "Score " << goals.at(iter -> first) << " Combo " << combos.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
+            cout << "Combo " << combos.at(iter -> first) << " Score " << goals.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
 
         }
 
@@ -319,7 +319,7 @@ void pros_game(string rate) {
     vector < char > combos;
     vector < string > levels; //難度
     vector < int > scores;
-    tie(magnification, goals, combos, levels, scores) = pros(rate);
+    tie(magnification, combos, goals, levels, scores) = pros(rate);
     int ans;
     vector < int > result_array;
     tie(ans, result_array) = leastScores(scores, target);
@@ -344,7 +344,7 @@ void pros_game(string rate) {
             target = target - result_array[target];
         }
         for (iter = score_result.begin(); iter != score_result.end(); ++iter) {
-            cout << "Magnification" << magnification.at(iter -> first) << " Score " << goals.at(iter -> first) << " Combo " << combos.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
+            cout << "Magnification" << magnification.at(iter -> first) << " Combo " << combos.at(iter -> first) << " Score " << goals.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
 
         }
 
