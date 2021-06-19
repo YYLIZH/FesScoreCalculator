@@ -344,7 +344,7 @@ void pros_game(string rate) {
             target = target - result_array[target];
         }
         for (iter = score_result.begin(); iter != score_result.end(); ++iter) {
-            cout << "Magnification" << magnification.at(iter -> first) << " Combo " << combos.at(iter -> first) << " Score " << goals.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
+            cout << "Magnification " << magnification.at(iter -> first) << " Combo " << combos.at(iter -> first) << " Score " << goals.at(iter -> first) << " Level " << levels.at(iter -> first) << " " << iter -> second << " times" << endl;
 
         }
 
